@@ -556,8 +556,12 @@ public class Network extends Thread {
     	
     	while (true)
     	{
-        /* Implement the code for the run method */
-        return;
+            //The network thread executes an infinite loop that ends when both client and server threads have disconnected.
+            if (getClientConnectionStatus() == "disconnected" && getServerConnectionStatus() == "disconnected") {
+                return;
+            }
+            //In case the client or sever threads are still connected the network thread must continuously yield the cpu. 
+            Thread.yield();
     	}    
     }
 }

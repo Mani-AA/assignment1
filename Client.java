@@ -158,7 +158,10 @@ public class Client extends Thread {
          while (i < getNumberOfTransactions())
          {  
             // while( objNetwork.getInBufferStatus().equals("full") );     /* Alternatively, busy-wait until the network input buffer is available */
-                                             	
+            while( objNetwork.getInBufferStatus().equals("full") ) {
+                objNetwork.setClientConnectionStatus("disconnected");
+                Thread.yield();
+            }                                 	
             transaction[i].setTransactionStatus("sent");   /* Set current transaction status */
            
             System.out.println("\n DEBUG : Client.sendTransactions() - sending transaction on account " + transaction[i].getAccountNumber());
@@ -182,7 +185,11 @@ public class Client extends Thread {
          while (i < getNumberOfTransactions())
          {     
         	 // while( objNetwork.getOutBufferStatus().equals("empty"));  	/* Alternatively, busy-wait until the network output buffer is available */
-                                                                        	
+            while( objNetwork.getOutBufferStatus().equals("empty")) {
+                objNetwork.setClientConnectionStatus("disconnected");
+                Thread.yield();
+            }
+
             objNetwork.receive(transact);                               	/* Receive updated transaction from the network buffer */
             
             System.out.println("\n DEBUG : Client.receiveTransactions() - receiving updated transaction on account " + transact.getAccountNumber());
@@ -211,8 +218,12 @@ public class Client extends Thread {
     public void run()
     {   
     	Transactions transact = new Transactions();
-    	long sendClientStartTime, sendClientEndTime, receiveClientStartTime, receiveClientEndTime;
-    
-	/* Implement the code for the run method */
+        long sendClientStartTime, sendClientEndTime, receiveClientStartTime, receiveClientEndTime;
+        
+        if (clientOperation == "sending") {
+            sendTransactions();
+        } else if (clientOperation == "receiving") {
+            receiveTransactions(transact);
+        }
     }
 }
