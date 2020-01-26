@@ -1,4 +1,4 @@
-compile:
-	find . -name "*.java" -print | xargs javac
-run:
-	java comp546pa1w2020.Comp546pa1driver
+compile: 
+	javac ../comp546pa1w2020/*.java
+run: 
+	java ../comp546pa1w2020.Comp546pa1w2020
