@@ -159,7 +159,6 @@ public class Client extends Thread {
          {  
             // while( objNetwork.getInBufferStatus().equals("full") );     /* Alternatively, busy-wait until the network input buffer is available */
             while( objNetwork.getInBufferStatus().equals("full") ) {
-                objNetwork.setClientConnectionStatus("disconnected");
                 Thread.yield();
             }                                 	
             transaction[i].setTransactionStatus("sent");   /* Set current transaction status */
@@ -169,7 +168,6 @@ public class Client extends Thread {
             objNetwork.send(transaction[i]);                            /* Transmit current transaction */
             i++;
          }
-         
     }
          
  	/** 
@@ -186,7 +184,6 @@ public class Client extends Thread {
          {     
         	 // while( objNetwork.getOutBufferStatus().equals("empty"));  	/* Alternatively, busy-wait until the network output buffer is available */
             while( objNetwork.getOutBufferStatus().equals("empty")) {
-                objNetwork.setClientConnectionStatus("disconnected");
                 Thread.yield();
             }
 
@@ -196,7 +193,7 @@ public class Client extends Thread {
             
             System.out.println(transact);                               	/* Display updated transaction */    
             i++;
-         } 
+         }
     }
      
     /** 
@@ -222,8 +219,11 @@ public class Client extends Thread {
         
         if (clientOperation == "sending") {
             sendTransactions();
+            objNetwork.setClientConnectionStatus("disconnected");
+
         } else if (clientOperation == "receiving") {
             receiveTransactions(transact);
+            objNetwork.setClientConnectionStatus("disconnected");
         }
     }
 }
