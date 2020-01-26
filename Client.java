@@ -219,11 +219,11 @@ public class Client extends Thread {
         
         if (clientOperation == "sending") {
             sendTransactions();
-            objNetwork.setClientConnectionStatus("disconnected");
+            //objNetwork.disconnect("192.168.2.0");
 
         } else if (clientOperation == "receiving") {
             receiveTransactions(transact);
-            objNetwork.setClientConnectionStatus("disconnected");
+            objNetwork.disconnect("192.168.2.0");
         }
     }
 }

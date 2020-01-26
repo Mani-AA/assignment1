@@ -561,9 +561,8 @@ public class Network extends Thread {
                 return;
             }
             //In case the client or sever threads are still connected the network thread must continuously yield the cpu. 
-            if (getClientConnectionStatus() == "connected" || getServerConnectionStatus() == "connected") {
-                Thread.yield();
-            }
-    	}    
+            Thread.yield();    
+        }    
+        
     }
 }
