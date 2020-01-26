@@ -1,4 +1,3 @@
-package comp546pa1w2020;
 
 import java.util.Scanner;
 import java.io.FileInputStream;
@@ -130,7 +129,7 @@ public class Server extends Thread {
         
         try
         {
-         inputStream = new Scanner(new FileInputStream("comp546pa1w2020/account.txt"));
+         inputStream = new Scanner(new FileInputStream("account.txt"));
         }
         catch(FileNotFoundException e)
         {

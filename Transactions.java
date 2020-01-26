@@ -1,4 +1,3 @@
-package comp546pa1w2020;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
