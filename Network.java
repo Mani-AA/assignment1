@@ -558,6 +558,7 @@ public class Network extends Thread {
     	{
             //The network thread executes an infinite loop that ends when both client and server threads have disconnected.
             if (getClientConnectionStatus() == "disconnected" && getServerConnectionStatus() == "disconnected") {
+                System.out.println("\n Terminating network thread - Client disconnected Server disconnected");
                 return;
             }
             //In case the client or sever threads are still connected the network thread must continuously yield the cpu. 
