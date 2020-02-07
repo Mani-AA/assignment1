@@ -120,7 +120,7 @@ java Comp546pa1driver
 
  Account number 92018 Account Balance -250.0 Message done
 
- Terminating client sending thread -  Running time 4 milliseconds
+ Terminating client sending thread -  Running time 10 milliseconds
 
  Account number 42850 Account Balance 1000.0 Message done
 
@@ -164,8 +164,8 @@ java Comp546pa1driver
 
  Account number 12535 Account Balance 750.0 Message done
 
- Terminating client receiving thread -  Running time 6 milliseconds
+ Terminating client receiving thread -  Running time 12 milliseconds
 
- Terminating server thread -  Running time 13 milliseconds
+ Terminating server thread -  Running time 19 milliseconds
 
  Terminating network thread - Client disconnected Server disconnected
