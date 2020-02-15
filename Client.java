@@ -1,4 +1,4 @@
-
+//new code 2
 import java.util.Scanner;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -228,6 +228,7 @@ public class Client extends Thread {
             receiveClientEndTime = System.currentTimeMillis();
             System.out.println("\n Terminating client receiving thread - " + " Running time " + (receiveClientEndTime - receiveClientStartTime) + " milliseconds");            
             objNetwork.disconnect("192.168.2.0");
+            /gfdgfgdf
         }
     }
 }
